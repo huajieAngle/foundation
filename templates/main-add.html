@@ -1,0 +1,43 @@
+<div class="large-10 medium-9 small-7 columns cla" ng-controller="addCtrl">
+	<div class="long0"><span class="line0">+</span>添加工具</div>
+	<div>
+		<div class="large-4  lo">
+			<div class="large-12 columns lo">
+				<div class="large-3 medium-3 small-3 columns"><label>区域</label></div>
+				<div class="large-9 medium-9 small-9 columns">
+					<select name="" id="" ng-model="areas" ng-options="item.WorkShop_Name for item in add"></select>
+				</div>
+			</div>
+		</div>
+		<div class="large-4 lo">
+			<div class="large-12 columns lo">
+				<div class="large-3 medium-3 small-3 columns"><label>台面</label></div>
+				<div class="large-9 medium-9 small-9 columns">
+					<select name="" id="" ng-model="bench" ng-options="item.WorkBench_Name for item in areas.ListWorkBench"></select>
+				</div>
+			</div>
+		</div>
+		<div class="large-4 lo">
+			<div class="large-12 columns lo">
+				<div class="large-3 medium-3 smlall-3 columns"><label>工具</label></div>
+				<div class="large-9 medium-9 small-9 columns"><input type="" ng-model="tool" placeholder="如:剪刀1" class="inp_text1" /></div>
+			</div>
+		</div>
+		<div class="large-4 lo">
+			<div class="large-12 columns lo">
+				<div class="large-3 medium-3 smlall-3 columns"><label>标签</label></div>
+				<div class="large-9 medium-9 small-9 columns"><input type="" ng-model="Device" class="inp_text1" /></div>
+			</div>
+		</div>
+	</div>
+	<div class="long0 large-12 medium-12 small-12 columns">
+		<div class="large-4 medium-4 small-4" style="text-align: center;">
+			<input type="button" value="提交" ng-click="sent()" class="sent_button" />
+			<input type="button" value="重置" ng-click="back()" class="back_button" />
+		</div>
+	</div>
+	<div data-alert class="alert-box info radius" ng-if="flag3">
+		您添加的工具名称为 {{tool}},标签为 {{Device}}
+		<a ui-sref="main.main-inp" class="close">&times;</a>
+	</div>
+</div>

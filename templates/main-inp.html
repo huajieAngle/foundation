@@ -1,0 +1,74 @@
+<div class="large-10 medium-9 small-7 columns cla" ng-controller="inpCtrl">
+	<div class="long"><span class="line">|</span><span class="mm">录入数据</span></div>
+	<div class="inp">
+		<div class="large-4 medium-6 small-12 columns">
+			<div class="row collapse postfix-round">
+				<div class="small-8 columns row collapse postfix-round">
+					<div class="small-9 columns">
+						<input type="text" placeholder="请输入查询工具名称" ng-model="search_con">
+					</div>
+					<div class="small-3 columns">
+						<button class="button postfix" ng-click="search_on()">查询</button>
+					</div>
+				</div>
+				<div class="small-3 columns">
+					<a ui-sref="main.main-add" class="button postfix columns">+ 添加</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+		<table>
+			<thead>
+				<tr>
+					<th width="100">选择</th>
+					<th width="300">区域</th>
+					<th width="300">台面</th>
+					<th width="300">工具</th>
+					<th width="300">标签</th>
+					<th width="300">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in lists">
+					<td><input type="checkbox" ng-model="select" ng-click="changeSelect(item)"/></td>
+					<td >{{item.WorkShop_Name}}</td>
+					<td>{{item.WorkBench_Name}}</td>
+					<td ng-if="$index!=current">{{item.Tool_Name}}</td>
+					<td ng-if="$index!=current">{{item.DeviceID}}</td>
+					<td ng-if="$index==current"><input type="" ng-model="item.Tool_Name" class="inp_text"/></td>
+					<td ng-if="$index==current"><input type="" ng-model="item.DeviceID" class="inp_text"/></td>
+					<td><input type="button" value="删除" ng-click="deleteItem(item)"/>
+					<input type="button" value="修改" ng-click="revison($index)" ng-if="$index!=current"/>
+					<input type="button" value="保存" ng-click="save(item)" ng-if="$index==current"/>
+					</td>
+				</tr>
+				<tr ng-if="!flag" class="inp_tr">
+					<td colspan="6" class="inp_td">
+						<div style="float: left;">
+							<a ng-click="deleteAll()" class="deleteAll"> 删除</a>
+						</div>
+						<div style="float: right;">
+							<span>共<span class="list_cord">{{Count}}</span>条记录. </span>
+							&nbsp;&nbsp;<span>{{num}}/{{page}}页</span>
+							<span ng-repeat="item in ppg track by $index">
+										<span class="page" ng-class="{'bgc':item==num}" ng-click="changTab(item)" class="page1">{{item}}</span>
+							</span>
+							<span class="page1" ng-click="nextPage()">下一页</span>
+							<span class="page1" ng-click="lastPage()">末页</span>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<a href="#" data-reveal-id="myModal">Click Me For A Modal</a>
+
+<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle">Awesome. I have it.</h2>
+  <p class="lead">Your couch.  It is mine.</p>
+  <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+ 

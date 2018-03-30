@@ -1,0 +1,41 @@
+<div class="login" ng-controller="loginCtrl">
+	<div class="row">
+		<div class="large-12 columns">
+			<div class="panel">
+				<div class="cc">
+					<div class="large-3 medium-4 small-5 login_inp">
+						<div class="login_header">
+							<span class="sper0">登录</span>
+						</div>
+						<div class="login_content" ng-init="loginOnload()">
+							<div class="row collapse">
+								<div class="small-2 columns">
+									<a href="#" class="button postfix"><img src="img/user.png" /></a>
+								</div>
+								<div class="small-10 columns">
+									<input type="text" placeholder="用户名" ng-model="login.user_name">
+								</div>
+							</div>
+							<div class="row collapse">
+								<div class="small-2 columns">
+									<a href="#" class="button postfix"><img src="img/psw.png" /></a>
+								</div>
+								<div class="small-10 columns">
+									<input type="text" placeholder="密码" ng-model="login.user_pwd">
+								</div>
+							</div>
+							<div class="row collapse">
+								<input type="checkbox" ng-model="login.chk" /><label>5天内自动登录</label>
+							</div>
+							<div class="row collapse" style="margin-top: 1rem;">
+								<div class="small-12 columns">
+									<a href="#" class="radius button login_button" ng-click="changeLogin(login.user_name,login.user_pwd,login.chk)">登&nbsp;&nbsp;&nbsp;&nbsp;录</a><br/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
